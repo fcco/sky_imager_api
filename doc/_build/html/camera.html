@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Camera-handler &mdash; Python Library 0.1.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Python Library 0.1.0 documentation" href="index.html"/>
+        <link rel="prev" title="Welcome to Camera-handler’s documentation!" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Python Library</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Camera-handler</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Python Library</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Camera-handler</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/camera.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="module-src.camera">
+<span id="camera-handler"></span><h1>Camera-handler<a class="headerlink" href="#module-src.camera" title="Permalink to this headline">¶</a></h1>
+<p>This module is used to handle Vivotek fisheye lens camera.</p>
+<dl class="docutils">
+<dt>It consists of methods in order to </dt>
+<dd><ul class="first last simple">
+<li>retrieve images directly from the camera (download_image_to_file)</li>
+<li>retrieve stream</li>
+<li>set exposure level (set_exposure_level)</li>
+<li>set gain (set_gain)</li>
+<li>set IR cut mode (cut_filter_mode)</li>
+<li>draw basic text (date,time,location-string) to image (add_text)</li>
+<li>calculate solar position (solar_data)</li>
+</ul>
+</dd>
+<dt>Package requirements:</dt>
+<dd>PIL, urllib2</dd>
+</dl>
+<p>Please care about the access to the camera via command-line and set proxies 
+if needed.</p>
+<p><a class="reference external" href="https://docs.python.org/2/library/urllib.html">https://docs.python.org/2/library/urllib.html</a>
+<a class="reference external" href="https://docs.python.org/2/library/urllib2.html">https://docs.python.org/2/library/urllib2.html</a></p>
+<p>Thomas Schmidt 05/2015</p>
+<dl class="function">
+<dt id="src.camera.solar_data">
+<tt class="descclassname">src.camera.</tt><tt class="descname">solar_data</tt><big>(</big><em>dates</em>, <em>lat</em>, <em>lon</em><big>)</big><a class="reference internal" href="_modules/src/camera.html#solar_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.camera.solar_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple solar position algorithm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dates</strong> (<em>list</em>) &#8211; list of datetime objects (must be in UTC)</li>
+<li><strong>lat</strong> (<em>float</em>) &#8211; latitude (degrees)</li>
+<li><strong>lon</strong> &#8211; longitude (degrees)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dictionary with &#8216;sza&#8217; - solar zenith angle (degrees)
+&#8216;saz&#8217; - solar azimuth angle (degrees)
+&#8216;INull&#8217; - extraterrestrial radiation (W/m^2)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Formulas from Spencer (1972) and can be also found in &#8220;Solar energy
+fundamentals and modeling techniques&#8221; from Zekai Sen</p>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="src.camera.vivotek">
+<em class="property">class </em><tt class="descclassname">src.camera.</tt><tt class="descname">vivotek</tt><big>(</big><em>ip=''</em>, <em>http=None</em>, <em>https=None</em>, <em>user=''</em>, <em>passwd=''</em><big>)</big><a class="reference internal" href="_modules/src/camera.html#vivotek"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.camera.vivotek" title="Permalink to this definition">¶</a></dt>
+<dd><p>This methods are written for Vivotek FE8172V/FE8174V camera. The camera uses 
+cgi-scripts to handle some settings like exposure time, gain, etc. 
+Be careful to set only values that are accepted by the camera, otherwise
+nothing will happen or errors occur.</p>
+<dl class="method">
+<dt id="src.camera.vivotek.addText">
+<tt class="descname">addText</tt><big>(</big><em>img</em>, <em>dt=None</em>, <em>loc=''</em><big>)</big><a class="reference internal" href="_modules/src/camera.html#vivotek.addText"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.camera.vivotek.addText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds some text into the image ( timestamp, name )</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params img:</th><td class="field-body">image object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Params dt:</th><td class="field-body">datetime, optional, date and time to draw in image corners</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Params loc:</th><td class="field-body">string, optional, string to draw in image corner</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.camera.vivotek.cut_filter_mode">
+<tt class="descname">cut_filter_mode</tt><big>(</big><em>mode='day'</em><big>)</big><a class="reference internal" href="_modules/src/camera.html#vivotek.cut_filter_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.camera.vivotek.cut_filter_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets IR cut filter mode for Vivotek network camera</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> &#8211; str, optional
+IR cut mode: &#8220;day&#8221; (default), &#8220;night&#8221;, &#8220;auto&#8221;, &#8220;di&#8221;, &#8220;schedule&#8221;</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.camera.vivotek.download_image_to_file">
+<tt class="descname">download_image_to_file</tt><big>(</big><em>filename=None</em><big>)</big><a class="reference internal" href="_modules/src/camera.html#vivotek.download_image_to_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.camera.vivotek.download_image_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store the url content to filename</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>filename</strong> &#8211; <p>string, optional</p>
+<p>path + filename for output image, if not given the basename of the url 
+is used as filename and image is stored at current directory.</p>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns flag:</th><td class="field-body"><p class="first">boolean</p>
+<p class="last">True if saving was successful, otherwise False</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.camera.vivotek.set_exposure_level">
+<tt class="descname">set_exposure_level</tt><big>(</big><em>level=-1</em><big>)</big><a class="reference internal" href="_modules/src/camera.html#vivotek.set_exposure_level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.camera.vivotek.set_exposure_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets exposure level for Vivotek network camera</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>level</strong> &#8211; int, optional
+Exposure between 0-12, 6 is equal to neutral
+If level is not given, the default (=6) is set. Can be used to reset settings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.camera.vivotek.set_exposure_time">
+<tt class="descname">set_exposure_time</tt><big>(</big><em>maxexposure=-1</em>, <em>minexposure=-1</em><big>)</big><a class="reference internal" href="_modules/src/camera.html#vivotek.set_exposure_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.camera.vivotek.set_exposure_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets exposure time for Vivotek network camera</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>maxexposure</strong> (<em>minexposure,</em>) &#8211; <p>int, optional</p>
+<p>Exposure time range
+Possible  values: 
+5, 15, 25, 50, 100, 200, 250, 500, 1000, 2000, 4000, 8000, 16000, 32000</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="src.camera.vivotek.set_gain">
+<tt class="descname">set_gain</tt><big>(</big><em>maxgain=None</em>, <em>mingain=None</em><big>)</big><a class="reference internal" href="_modules/src/camera.html#vivotek.set_gain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.camera.vivotek.set_gain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets gain for Vivotek network camera</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Params maxgain:</th><td class="field-body">int, optional, maximum gain, default 100</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Params mingain:</th><td class="field-body">int, optional, minimum gain, default 0</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to Camera-handler’s documentation!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, EnMet Solar.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

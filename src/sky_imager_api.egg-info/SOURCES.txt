@@ -1,0 +1,9 @@
+README.rst
+setup.py
+src/__init__.py
+src/camera.py
+src/sky_imager_api.egg-info/PKG-INFO
+src/sky_imager_api.egg-info/SOURCES.txt
+src/sky_imager_api.egg-info/dependency_links.txt
+src/sky_imager_api.egg-info/requires.txt
+src/sky_imager_api.egg-info/top_level.txt

@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: sky-imager-api
+Version: 0.2.0
+Summary: Package with useful tools to handle Vivotek fisheye cameras
+Home-page: https://gitlab.uni-oldenburg.de/camera
+Author: Thomas Schmidt
+Author-email: t.schmidt@uni-oldenburg.de
+License: BSD
+Description: LONG DESCRIPTION
+        
+        
+Keywords: skyimager clouds camera photovoltaic forecast
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Sky Imager community
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
