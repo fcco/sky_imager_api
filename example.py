@@ -21,6 +21,16 @@ IP-address of camera (camera_ip)
 https-port (camera_port)
 directory for images (outdir)
 string for optional text (textstring)
+latitude, longitude of camera (only in day/night mode)
+
+Optional parameters:
+
+# image acquisition interval
+interval: image acquisition interval (in seconds)
+
+day_night: boolean, Day / Night mode (no image download for zenithal angles > sza_max)
+sza_max: the sun zenithal angle when downloading is stopped (in degrees) 
+
 
 It uses the camera module and its methods.
 

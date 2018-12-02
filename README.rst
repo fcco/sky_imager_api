@@ -1,8 +1,8 @@
 Camera Handler
 =======================
 
-Camera handling package to acquire images and archive images and to set 
-camera settings via HTTP-commands for Vivotek Fisheye network cameras
+Camera handling package to acquire images and archive images and to set
+camera settings via HTTP-commands for Vivotek and Mobotix (beta) Fisheye network cameras
 
 The camera module src/camera.py contains all necessary modules for downloading images, regulate exposure levels, gains, etc.,
 drawing text into images.
@@ -10,12 +10,12 @@ drawing text into images.
 Install in your system with pip
 
  .. code::
- 
+
     cd CAMERA_DIRECTORY
     pip install .
-    
+
     or use
-    
+
     cd CAMERA_DIRECTORY
     python setup.py build
     python setup.py install
@@ -29,24 +29,24 @@ This package requires "Pillow"-package for image handling to be installed
 install by using pip
 
  .. code::
- 
+
     pip install pillow
 
-Start the example script 
+Start the example script
 
  .. code::
- 
-    python example.py 
-    
+
+    python example.py
+
     or
-    
+
     chmod 755 example.py
     ./example.py
-    
-    
+
+
 
 Example.py
-=======================    
+=======================
 
 This script acquires camera images with different settings for
 day and night time
@@ -61,13 +61,12 @@ The script also draws some text (date and time and a string (e.g. location) in t
 
 Parameters which have to be set before usage:
 
-Latitude (lat)
-Longitude (lon)
-IP-address of camera (ip)
+Latitude (latitude)
+Longitude (longitude)
+IP-address of camera (camera_ip)
 directory for images (outdir)
-string for optional text 
+string for optional text (textstring)
 
 It uses the camera module and its methods.
 
-TS 09/2015
-
+TS 11/2018
