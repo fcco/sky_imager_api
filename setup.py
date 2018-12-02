@@ -18,7 +18,7 @@ setup(
     version='0.2.0',
     description='Package with useful tools to handle Vivotek fisheye cameras',
     long_description=long_description + '\n\n' + history,
-    url='https://gitlab.uni-oldenburg.de/camera',
+    url='https://github.com/fcco/sky_imager_api',
     author='Thomas Schmidt',
     author_email='t.schmidt@uni-oldenburg.de',
     license='BSD',
